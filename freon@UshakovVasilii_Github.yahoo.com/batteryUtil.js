@@ -35,7 +35,7 @@ export default class BatteryUtil {
             power /= 1000000.00;
 
             let state = this._get_sensor_data(bat_path, "status");
-            if (state.startsWith("Dis"))
+            if (state.startsWith("Dis") && power > 0)
                 power *= -1;
 
             let bat_name = bat_path.split('/').pop();
